@@ -15,7 +15,7 @@ COPY . .
 RUN mvn clean install -DskipTests
 
 # Etapa 2: Imagem leve para rodar o app
-FROM openjdk:17-jdk-slim
+FROM eclipse-temurin:17-jre-jammy
 
 # Define porta
 EXPOSE 8080
