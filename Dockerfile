@@ -21,7 +21,7 @@ FROM eclipse-temurin:17-jre-jammy
 EXPOSE 8080
 
 # Copia o JAR gerado para a nova imagem
-COPY --from=build /app/target/gs-swift-safety-0.0.1-SNAPSHOT.jar app.jar
+COPY --from=build /app/target/sprint1-0.0.1-SNAPSHOT.jar app.jar
 
 # Comando para executar o app
 ENTRYPOINT ["java", "-jar", "app.jar"]
