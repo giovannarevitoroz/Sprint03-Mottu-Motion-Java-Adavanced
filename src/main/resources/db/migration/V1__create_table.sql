@@ -1,3 +1,4 @@
+-- DROP TABLES (em ordem inversa de dependência)
 DROP TABLE IF EXISTS movimentacao;
 DROP TABLE IF EXISTS vaga;
 DROP TABLE IF EXISTS setor;
@@ -7,10 +8,11 @@ DROP TABLE IF EXISTS moto;
 DROP TABLE IF EXISTS cliente;
 DROP TABLE IF EXISTS patio;
 DROP TABLE IF EXISTS cargo;
+DROP TABLE IF EXISTS usuario;
 
--- cliente
+-- CLIENTE
 CREATE TABLE cliente (
-    id_cliente BIGINT AUTO_INCREMENT PRIMARY KEY,
+    id_cliente BIGSERIAL PRIMARY KEY,
     telefone_cliente VARCHAR(11) NOT NULL,
     nome_cliente VARCHAR(100) NOT NULL,
     sexo_cliente CHAR(1) NOT NULL,
@@ -18,24 +20,24 @@ CREATE TABLE cliente (
     cpf_cliente VARCHAR(11) NOT NULL UNIQUE
 );
 
--- patio
+-- PATIO
 CREATE TABLE patio (
-    id_patio BIGINT AUTO_INCREMENT PRIMARY KEY,
+    id_patio BIGSERIAL PRIMARY KEY,
     localizacao_patio VARCHAR(100) NOT NULL,
     nome_patio VARCHAR(100) NOT NULL,
     descricao_patio VARCHAR(255)
 );
 
--- cargo
+-- CARGO
 CREATE TABLE cargo (
-    id_cargo BIGINT AUTO_INCREMENT PRIMARY KEY,
+    id_cargo BIGSERIAL PRIMARY KEY,
     nome_cargo VARCHAR(50) NOT NULL,
     descricao_cargo VARCHAR(255)
 );
 
--- moto
+-- MOTO
 CREATE TABLE moto (
-    id_moto BIGINT AUTO_INCREMENT PRIMARY KEY,
+    id_moto BIGSERIAL PRIMARY KEY,
     placa_moto VARCHAR(7) UNIQUE,
     modelo_moto VARCHAR(70) NOT NULL,
     situacao_moto VARCHAR(50) NOT NULL,
@@ -46,9 +48,9 @@ CREATE TABLE moto (
     CONSTRAINT chk_situacao_moto CHECK (situacao_moto IN ('Inativa', 'Ativa', 'Manutenção', 'Em Trânsito'))
 );
 
--- setor
+-- SETOR
 CREATE TABLE setor (
-    id_setor BIGINT AUTO_INCREMENT PRIMARY KEY,
+    id_setor BIGSERIAL PRIMARY KEY,
     tipo_setor VARCHAR(70) NOT NULL,
     patio_id_patio BIGINT NOT NULL,
     status_setor VARCHAR(50) NOT NULL,
@@ -61,19 +63,18 @@ CREATE TABLE setor (
     CONSTRAINT chk_status_setor CHECK (status_setor IN ('Cheia', 'Parcial', 'Livre'))
 );
 
--- vaga
+-- VAGA
 CREATE TABLE vaga (
-    id_vaga BIGINT AUTO_INCREMENT PRIMARY KEY,
+    id_vaga BIGSERIAL PRIMARY KEY,
     numero_vaga VARCHAR(10) NOT NULL,
-    status_ocupada TINYINT(1) DEFAULT 0 NOT NULL,
+    status_ocupada BOOLEAN DEFAULT FALSE NOT NULL,
     setor_id_setor BIGINT NOT NULL,
-    CONSTRAINT setor_fk_vaga FOREIGN KEY (setor_id_setor) REFERENCES setor(id_setor),
-    CONSTRAINT chk_status_ocupada CHECK (status_ocupada IN (0, 1))
+    CONSTRAINT setor_fk_vaga FOREIGN KEY (setor_id_setor) REFERENCES setor(id_setor)
 );
 
--- movimentacao
+-- MOVIMENTACAO
 CREATE TABLE movimentacao (
-    id_movimentacao BIGINT AUTO_INCREMENT PRIMARY KEY,
+    id_movimentacao BIGSERIAL PRIMARY KEY,
     dt_entrada DATE NOT NULL,
     dt_saida DATE NULL,
     descricao_movimentacao VARCHAR(255),
@@ -83,9 +84,9 @@ CREATE TABLE movimentacao (
     CONSTRAINT vaga_fk FOREIGN KEY (vaga_id_vaga) REFERENCES vaga(id_vaga) ON DELETE CASCADE
 );
 
--- funcionario
+-- FUNCIONARIO
 CREATE TABLE funcionario (
-    id_funcionario BIGINT AUTO_INCREMENT PRIMARY KEY,
+    id_funcionario BIGSERIAL PRIMARY KEY,
     nome_funcionario VARCHAR(100) NOT NULL,
     telefone_funcionario VARCHAR(11) NOT NULL,
     cargo_id_cargo BIGINT NOT NULL,
@@ -94,9 +95,9 @@ CREATE TABLE funcionario (
     CONSTRAINT patio_fk_funcionario FOREIGN KEY (patio_id_patio) REFERENCES patio(id_patio)
 );
 
--- gerente
+-- GERENTE
 CREATE TABLE gerente (
-    id_gerente BIGINT AUTO_INCREMENT PRIMARY KEY,
+    id_gerente BIGSERIAL PRIMARY KEY,
     nome_gerente VARCHAR(100) NOT NULL,
     telefone_gerente VARCHAR(11) NOT NULL,
     cpf_gerente VARCHAR(11) NOT NULL UNIQUE,
@@ -104,8 +105,9 @@ CREATE TABLE gerente (
     CONSTRAINT patio_fk_gerente FOREIGN KEY (patio_id_patio) REFERENCES patio(id_patio)
 );
 
-CREATE TABLE USUARIO (
-    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+-- USUARIO
+CREATE TABLE usuario (
+    id BIGSERIAL PRIMARY KEY,
     username VARCHAR(50) UNIQUE NOT NULL,
     password VARCHAR(255) NOT NULL,
     role VARCHAR(50) NOT NULL
