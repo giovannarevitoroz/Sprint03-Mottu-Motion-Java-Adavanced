@@ -12,7 +12,7 @@ WORKDIR /app
 COPY . .
 
 # Build da aplicação (sem testes)
-RUN mvn clean install -DskipTests -Dfile.encoding=UTF-8
+RUN mvn clean install -DskipTests
 
 # Etapa 2: Imagem leve para rodar o app
 FROM eclipse-temurin:17-jre-jammy
