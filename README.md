@@ -1,307 +1,265 @@
-# Em parceria com a Mottu, apresentamos: 
-# Mottu Mottion um Sistema de Monitoramento e Gestão de Pátios para a Mottu
-
 # Vídeo demonstracao do projeto 
 ## [VIDEO YOUTUBE](https://youtu.be/lbROYuvLvZY)
 
-## [VIDEO NO DRIVE COMO VIDEO BACKUP](https://drive.google.com/file/d/1HAXDzK6bT4Yi5NcvWuoMdyQoIE4045ME/view?usp=sharing)
 
-## Visão Geral
+![Logo](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/th5xamgrr6se0x5ro4g6.png)
 
-O **Mottu Mottion** é uma aplicação desenvolvida para apoiar a empresa de aluguel de motos **Mottu** na gestão e monitoramento de sua frota.
-O sistema permite acompanhar em tempo real a movimentação das motos entre os setores dos pátios, utilizando sensores de **Bluetooth** e **GPS** embarcados em microcontroladores **ESP32**.
+# Mottu Mottion
 
-A plataforma registra a entrada e saída das motos em cada setor, informando automaticamente a quantidade de veículos em cada local, além de possibilitar o gerenciamento de clientes, funcionários, pátios e vagas.
-
-O projeto foi implementado em **Java com Spring Boot**, utilizando o padrão **API RESTful** para disponibilizar dados e serviços de forma padronizada e escalável, podendo ser consumido por interfaces web, mobile ou até mesmo sistemas de monitoramento em tempo real.
+O **Mottu Mottion** é um sistema desenvolvido em **Java com Spring Boot**, criado para apoiar a **Mottu**, empresa especializada no aluguel de motos para entregadores.
+O projeto tem como objetivo aprimorar a **gestão e o monitoramento da frota**, oferecendo uma plataforma **web moderna, segura e escalável**.
 
 ---
 
-## Migração de Banco com Flyway
+## Etiquetas
 
-O projeto utiliza **Flyway** para versionamento e migração automática do banco de dados.
-
-### Como funciona:
-
-* Todos os scripts SQL devem ser adicionados na pasta:
-
-```
-src/main/resources/db/migration
-```
-
-* O Flyway aplicará automaticamente os scripts ao iniciar a aplicação.
-  Isso garante que o banco esteja sempre atualizado com a versão correta das tabelas e dados iniciais.
-
-* Exemplo de script de inserção de usuários:
-
-```sql
-INSERT INTO USUARIO (username, password, role)
-VALUES 
-('kgonascimento', '$2a$10$9j7OWhYxUJS3lzehf9tbyuBCTsPJmZYIXRuH.z0.a8Iw5wDvtJkPC', 'ROLE_FUNCIONARIO'),
-('admin', '$2a$10$GDnclieRR2G76y06Em4PoexO4xm.08cRMB0TJe1jIFgXLIS3xiO8.', 'ROLE_GERENTE');
-```
-
-> Senhas estão criptografadas com **BCrypt**.
+[![Java](https://img.shields.io/badge/Java-17-orange)]()
+[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3-brightgreen)]()
+[![Flyway](https://img.shields.io/badge/Flyway-Migrations-red)]()
+[![JWT](https://img.shields.io/badge/Security-JWT-blue)]()
+[![MySQL](https://img.shields.io/badge/Database-MySQL%208-lightblue)]()
+[![PostgreSQL](https://img.shields.io/badge/Cloud-Render%20PostgreSQL-purple)]()
 
 ---
 
-## Rotas Protegidas
+## Demonstração
 
-A aplicação possui **controle de acesso baseado em perfis de usuário**:
+Acesse a versão hospedada do projeto:
 
-### Perfis
-
-| Perfil           | Descrição                                         |
-| ---------------- | ------------------------------------------------- |
-| ROLE_FUNCIONARIO | Acesso a operações básicas de registro e consulta |
-| ROLE_GERENTE     | Todos os privilégios, incluindo gerenciamento     |
-
-### Endpoints públicos
-
-* `/login` – página de login
-* `/error` – página de erro
-* `/css/**`, `/js/**`, `/webjars/**` – recursos estáticos
-
-### Endpoints para **FUNCIONÁRIO e GERENTE**
-
-| Endpoint            | Operação                           |
-| ------------------- | ---------------------------------- |
-| `/clientes/**`      | Consultar e cadastrar clientes     |
-| `/motos/**`         | Consultar e cadastrar motos        |
-| `/movimentacoes/**` | Registrar entradas/saídas de motos |
-
-### Endpoints apenas para **GERENTE**
-
-| Endpoint           | Operação                                 |
-| ------------------ | ---------------------------------------- |
-| `/funcionarios/**` | Gerenciar funcionários                   |
-| `/cargos/**`       | Gerenciar cargos                         |
-| `/patios/**`       | Gerenciar pátios                         |
-| `/setores/**`      | Gerenciar setores dos pátios             |
-| `/vagas/**`        | Gerenciar vagas                          |
-| `/gerentes/**`     | Gerenciar usuários com perfil de gerente |
-
-> Qualquer outra requisição exige autenticação.
+🔗 [https://sprint03-mottu-motion-java-adavanced-1.onrender.com](https://sprint03-mottu-motion-java-adavanced-1.onrender.com)
 
 ---
-## Arquitetura da Solução
 
-A solução foi estruturada em **camadas bem definidas**, seguindo princípios de **separação de responsabilidades**:
+## Screenshots
 
+![App Screenshot](https://via.placeholder.com/468x300?text=Mottu+Mottion+-+Spring+Boot+API)
+
+---
+
+## Funcionalidades
+
+* Cadastro e gerenciamento de motos, pátios, setores e vagas
+* Registro de movimentações de entrada e saída de veículos
+* Autenticação JWT com perfis de usuário
+
+  * **ROLE_FUNCIONARIO**
+  * **ROLE_GERENTE**
+* Migração automática de banco de dados com Flyway
+* API RESTful seguindo boas práticas e arquitetura em camadas
+* Deploy automatizado em nuvem (Render)
+
+---
+
+## Documentação
+
+A documentação técnica e diagramas estão disponíveis em `/docs`.
+
+---
+
+## Deploy
+
+O deploy é feito automaticamente via **Render**, utilizando **PostgreSQL Cloud**.
+
+```bash
+# Branch de deploy
+git checkout sprint-4-render-migration
+
+# Build do projeto
+mvn clean install
+
+# Deploy automático via Render
 ```
-Controller → Service → Repository → Model → Database
+
+---
+
+## Instalação
+
+Clone o repositório e instale as dependências Maven.
+
+```bash
+git clone https://github.com/giovannarevitoroz/Sprint01-Mottu-Motion-Java-Adavanced.git
+cd Sprint01-Mottu-Motion-Java-Adavanced
+mvn install
 ```
 
-* **Controller**: disponibiliza endpoints REST para comunicação com o frontend e integrações externas.
-* **Service**: concentra as regras de negócio, validações e orquestração das operações.
-* **Repository**: gerencia a persistência dos dados com **Spring Data JPA**.
-* **Model**: representa as entidades de domínio persistidas no banco de dados.
-* **DTO**: transporte de dados entre camadas, facilitando validações e reduzindo o acoplamento.
-* **Security**: camada de segurança responsável por autenticação, autorização e uso de tokens JWT.
-* **Exception**: centraliza tratamento de erros e respostas padronizadas para falhas.
-* **View**: camada de apresentação com **Thymeleaf**, responsável pelas páginas do sistema.
-* **CORS**: configuração de acesso para permitir que clientes hospedados em diferentes domínios possam consumir a API.
+---
+
+## Rodando localmente
+
+```bash
+mvn spring-boot:run
+```
+
+Acesse: [http://localhost:8080/login](http://localhost:8080/login)
+
+---
+
+## Rodando os testes
+
+Execute os testes automatizados com:
+
+```bash
+mvn test
+```
+
+Os testes validam endpoints, autenticação e persistência no banco via **JUnit**.
+
+---
+
+## Aprendizados
+
+Durante o desenvolvimento do projeto, foram aplicados e consolidados diversos conceitos:
+
+* Estruturação de API RESTful com **Spring Boot 3**
+* Implementação de segurança com **Spring Security + JWT**
+* Controle de versão e migração de banco via **Flyway**
+* Integração contínua e deploy automatizado com **Render Cloud**
+* Modelagem relacional com **Spring Data JPA** e diagramas ER
+* Boas práticas de arquitetura em camadas (Controller, Service, Repository)
+
+---
+
+## Documentação da API
+
+#### Retorna todas as motos
+
+```http
+  GET /api/motos
+```
+
+| Parâmetro       | Tipo     | Descrição                             |
+| :-------------- | :------- | :------------------------------------ |
+| `Authorization` | `string` | **Obrigatório**. Token JWT do usuário |
+
+#### Retorna uma moto por ID
+
+```http
+  GET /api/motos/{id}
+```
+
+| Parâmetro | Tipo   | Descrição                                     |
+| :-------- | :----- | :-------------------------------------------- |
+| `id`      | `long` | **Obrigatório**. ID da moto que deseja buscar |
+
+#### Cadastra uma nova moto
+
+```http
+  POST /api/motos
+```
+
+| Campo                | Tipo     | Descrição            |
+| -------------------- | -------- | -------------------- |
+| `placa_moto`         | `string` | Placa da moto        |
+| `modelo_moto`        | `string` | Modelo da moto       |
+| `cliente_id_cliente` | `long`   | Cliente proprietário |
+
+---
+
+## Roadmap
+
+* [ ] Adicionar painel de dashboard com gráficos de movimentação
+* [ ] Implementar upload de documentos e comprovantes
+* [ ] Expandir autenticação para integração mobile
+* [ ] Adicionar logs detalhados com Spring Actuator
+
+---
+
+## Autores
+
+| Nome                                     | RM       | Função                                       |
+| ---------------------------------------- | -------- | -------------------------------------------- |
+| **Giovanna Revito Roz**                  | RM558981 | Desenvolvimento Backend e Modelagem de Banco |
+| **Kaian Gustavo de Oliveira Nascimento** | RM558986 | API REST e Segurança JWT                     |
+| **Lucas Kenji Kikuchi**                  | RM554424 | Documentação, Flyway e Deploy Render         |
 
 ---
 
 ## Estrutura do Projeto
 
 ```
-src/main/java/br/com/fiap/sprint1
- ├── controller/             # Controladores REST
- ├── cors/                   # Configurações de CORS
- ├── dto/                    # Data Transfer Objects
- ├── exception/              # Tratamento de exceções
- ├── model/                  # Entidades JPA
- ├── repository/             # Repositórios Spring Data
- ├── security/               # Autenticação e autorização (JWT)
- ├── service/                # Regras de negócio
- ├── view/                   # Páginas Thymeleaf
- └── Sprint2Application.java # Classe principal do Spring Boot
+mottu-mottion/
+│
+├── src/main/java/com/mottu/mottion/
+│   ├── controller/        # Endpoints REST
+│   ├── service/           # Regras de negócio
+│   ├── repository/        # Persistência JPA
+│   ├── model/             # Entidades
+│   ├── dto/               # Transporte de dados
+│   ├── security/          # Configuração JWT
+│   ├── exception/         # Tratamento de erros
+│   └── MottuMottion.java  # Classe principal
+│
+├── src/main/resources/
+│   ├── db/migration/      # Scripts Flyway
+│   ├── templates/         # Páginas Thymeleaf
+│   └── application.properties
+│
+└── pom.xml                # Dependências Maven
+```
 
-src/main/resources
- ├── db/migration/           # Scripts Flyway para versionamento do banco
- ├── static.css/             # Arquivos de estilo CSS
- ├── templates/              # Templates Thymeleaf
- └── application.properties  # Configurações do sistema
+---
 
-src/test/java                # Testes automatizados (JUnit)
-pom.xml                      # Gerenciamento de dependências (Maven)
+## Modelo Relacional (Mermaid)
+
+```mermaid
+erDiagram
+    CLIENTE ||--o{ MOTO : possui
+    PÁTIO ||--o{ SETOR : contém
+    SETOR ||--o{ VAGA : tem
+    VAGA ||--o{ MOVIMENTACAO : registra
+    MOTO ||--o{ MOVIMENTACAO : movimenta
+    FUNCIONARIO }o--|| CARGO : ocupa
+    FUNCIONARIO }o--|| PÁTIO : atua_em
+    GERENTE }o--|| PÁTIO : administra
+```
+
+---
+
+## Fluxo da Aplicação
+
+```mermaid
+flowchart TD
+    A[Usuário (Gerente/Funcionário)] -->|Login| B[Spring Security + JWT]
+    B -->|Token válido| C[Controller REST]
+    C --> D[Service Layer]
+    D --> E[Repository JPA]
+    E --> F[(Banco de Dados MySQL / PostgreSQL)]
+    F -->|Retorna dados| C
+    C --> G[Thymeleaf / API JSON]
 ```
 
 ---
 
 ## Tecnologias Utilizadas
 
-* **Java 17**
-* **Spring Boot 3**
-* **Spring Data JPA**
-* **Spring Security + JWT**
-* **Flyway** (migração de banco de dados)
-* **MySQL 8**
-* **Thymeleaf**
-* **Maven**
-* **Lombok**
+| Categoria      | Tecnologia            |
+| -------------- | --------------------- |
+| Linguagem      | Java 17               |
+| Framework      | Spring Boot 3         |
+| ORM            | Spring Data JPA       |
+| Segurança      | Spring Security + JWT |
+| Migração       | Flyway                |
+| Banco Local    | MySQL 8               |
+| Banco Produção | PostgreSQL (Render)   |
+| View           | Thymeleaf             |
+| Testes         | JUnit                 |
+| Deploy         | Render Cloud          |
 
 ---
 
-## API REST vs RESTful
+## Referências
 
-* **API REST**: aplica parcialmente os princípios da arquitetura REST, podendo não seguir todas as restrições.
-* **API RESTful**: segue de forma estrita os princípios do REST, como:
-
-    * Uso correto dos verbos HTTP (`GET`, `POST`, `PUT`, `DELETE`)
-    * Comunicação sem estado (stateless)
-    * Recursos acessados por URIs
-    * Hypermedia (HATEOAS)
-
-O projeto **Mottu Mottion** foi implementado como uma **API RESTful**.
-
----
-
-## Segurança e Perfis de Acesso
-
-A segurança é baseada em **Spring Security** com autenticação via **JWT**.
-
-Dois perfis de usuário foram definidos:
-
-* **ROLE\_FUNCIONARIO**
-
-    * Registrar entrada/saída de motos
-    * Consultar motos, clientes e pátios
-
-* **ROLE\_GERENTE**
-
-    * Todos os privilégios do funcionário
-    * Cadastro e gerenciamento de motos, pátios e vagas
-    * Gestão de funcionários e usuários
-
----
-
-## Exemplos de Endpoints
-
-### Clientes
-
-```http
-GET /api/clientes
-```
-
-```http
-POST /api/clientes
-Content-Type: application/json
-
-{
-  "nome": "João Silva",
-  "cpf": "12345678900",
-  "telefone": "11999999999"
-}
-```
-
-### Motos
-
-```http
-GET /api/motos
-```
-
-```http
-POST /api/motos
-Content-Type: application/json
-
-{
-  "placa": "ABC1234",
-  "modelo": "Honda Biz",
-  "status": "DISPONIVEL"
-}
-```
-
-### Pátios
-
-```http
-GET /api/patios
-```
-
----
-
-## Configuração do Banco de Dados
-
-Arquivo `application.properties`:
-
-```properties
-spring.datasource.url=jdbc:mysql://localhost:3306/mottu_mottion?useSSL=false&serverTimezone=UTC
-spring.datasource.username=seuuser
-spring.datasource.password=suasenha
-
-spring.jpa.database-platform=org.hibernate.dialect.MySQL8Dialect
-spring.jpa.hibernate.ddl-auto=validate
-spring.jpa.show-sql=true
-
-spring.flyway.enabled=true
-spring.flyway.locations=classpath:db/migration
-```
-
----
-
-## Como Executar o Projeto
-
-### Requisitos
-
-* Java 17+
-* Maven 3+
-* MySQL 8+
-
-### Passos
-
-1. Clonar o repositório:
-
-   ```bash
-   git clone https://github.com/giovannarevitoroz/Sprint01-Mottu-Motion-Java-Adavanced.git
-   ```
-2. Criar o banco de dados:
-
-   ```sql
-   CREATE DATABASE mottu_mottion;
-   ```
-3. Ajustar credenciais no `application.properties`.
-4. Instalar dependências:
-
-   ```bash
-   mvn install
-   ```
-5. Executar aplicação:
-
-   ```bash
-   mvn spring-boot:run
-   ```
-
-A aplicação ficará disponível em:
-`http://localhost:8080/login`
-
----
-
-## Testes
-
-Para executar os testes automatizados:
-
-```bash
-mvn test
-```
-
----
-
-## Roadmap Futuro
-
-* Integração com aplicação mobile para clientes e funcionários
-* Dashboard em tempo real com Node-RED
-* Relatórios detalhados em PDF e Excel
-* Expansão para monitoramento via IoT em escala
-
----
+* [Spring Boot Documentation](https://spring.io/projects/spring-boot)
+* [Flyway Documentation](https://flywaydb.org/documentation/)
+* [Spring Security JWT](https://spring.io/guides/tutorials/spring-boot-oauth2/)
+* [Render Deploy Docs](https://render.com/docs)
 
 ## Authors
 
 * Giovanna Revito Roz – RM558981
 * Kaian Gustavo de Oliveira Nascimento – RM558986
 * Lucas Kenji Kikuchi – RM554424
+
 
 
 
