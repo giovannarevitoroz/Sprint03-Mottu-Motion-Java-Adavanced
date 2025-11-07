@@ -2,7 +2,7 @@
 ## [VIDEO YOUTUBE](https://youtu.be/lbROYuvLvZY)
 
 
-![Logo](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/th5xamgrr6se0x5ro4g6.png)
+![Logo](https://chatgpt.com/backend-api/estuary/public_content/enc/eyJpZCI6Im1fNjkwN2FlM2JkOWUwODE5MWFlYzEzNmQ3ZGY4YWZkYzM6ZmlsZV8wMDAwMDAwMDBlYzQ3MWY1YjA4ZWMxM2MyMWJhMjVkMSIsInRzIjoiMjAzOTQiLCJwIjoicHlpIiwiY2lkIjoiMSIsInNpZyI6ImUxNjE2N2M2NTE0MTA4NGY3NDQ3ZTQxMjRhNjY4NzM0NmE1ODdkYTU3ZGM0ZDdjNGEwZmIyMmRiZDMyNDQwMDEiLCJ2IjoiMCIsImdpem1vX2lkIjpudWxsLCJjcCI6bnVsbCwibWEiOm51bGx9)
 
 # Mottu Mottion
 
@@ -259,6 +259,7 @@ flowchart TD
 * Giovanna Revito Roz – RM558981
 * Kaian Gustavo de Oliveira Nascimento – RM558986
 * Lucas Kenji Kikuchi – RM554424
+
 
 
 
