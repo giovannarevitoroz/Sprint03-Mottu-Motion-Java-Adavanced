@@ -217,7 +217,7 @@ erDiagram
 
 ## Fluxo da Aplicação
 
-```mermaid
+%%{init: {'theme': 'forest'}}%%
 flowchart TD
     A[Usuário (Gerente/Funcionário)] -->|Login| B[Spring Security + JWT]
     B -->|Token válido| C[Controller REST]
@@ -226,26 +226,31 @@ flowchart TD
     E --> F[(Banco de Dados MySQL / PostgreSQL)]
     F -->|Retorna dados| C
     C --> G[Thymeleaf / API JSON]
-```
 
 ---
 
-## Tecnologias Utilizadas
+graph TD
+    A[💻 Tecnologias Utilizadas] --> B[Linguagem]
+    A --> C[Framework]
+    A --> D[ORM]
+    A --> E[Segurança]
+    A --> F[Migração]
+    A --> G[Bancos de Dados]
+    A --> H[View]
+    A --> I[Testes]
+    A --> J[Deploy]
 
-| Categoria      | Tecnologia            |
-| -------------- | --------------------- |
-| Linguagem      | Java 17               |
-| Framework      | Spring Boot 3         |
-| ORM            | Spring Data JPA       |
-| Segurança      | Spring Security + JWT |
-| Migração       | Flyway                |
-| Banco Local    | MySQL 8               |
-| Banco Produção | PostgreSQL (Render)   |
-| View           | Thymeleaf             |
-| Testes         | JUnit                 |
-| Deploy         | Render Cloud          |
+    B --> B1[Java 17]
+    C --> C1[Spring Boot 3]
+    D --> D1[Spring Data JPA]
+    E --> E1[Spring Security + JWT]
+    F --> F1[Flyway]
+    G --> G1[MySQL 8 (Local)]
+    G --> G2[PostgreSQL (Render)]
+    H --> H1[Thymeleaf]
+    I --> I1[JUnit]
+    J --> J1[Render Cloud]
 
----
 
 ## Referências
 
@@ -259,6 +264,7 @@ flowchart TD
 * Giovanna Revito Roz – RM558981
 * Kaian Gustavo de Oliveira Nascimento – RM558986
 * Lucas Kenji Kikuchi – RM554424
+
 
 
 
