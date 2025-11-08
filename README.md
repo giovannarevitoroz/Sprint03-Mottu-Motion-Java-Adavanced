@@ -32,7 +32,8 @@ Acesse a versão hospedada do projeto:
 
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=Mottu+Mottion+-+Spring+Boot+API)
+![App Screenshot](<img width="1906" height="938" alt="Captura de tela 2025-11-08 110004" src="https://github.com/user-attachments/assets/40233358-bfd4-4c06-b790-97d2b478ae50" />
+)
 
 ---
 
@@ -200,15 +201,12 @@ erDiagram
     GERENTE }o--|| PÁTIO : administra
 ```
 
----
-
-### Fluxo da Aplicação
+## Fluxo da Aplicação
 
 ```mermaid
-%%{init: {'theme': 'forest'}}%%
 flowchart TD
-    A[Usuario (Gerente / Funcionario)] -->|Login| B[Spring Security + JWT]
-    B -->|Token valido| C[Controller REST]
+    A[Usuário (Gerente / Funcionário)] -->|Login| B[Spring Security + JWT]
+    B -->|Token válido| C[Controller REST]
     C --> D[Service Layer]
     D --> E[Repository JPA]
     E --> F[(Banco de Dados MySQL / PostgreSQL)]
@@ -218,16 +216,15 @@ flowchart TD
 
 ---
 
-### Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 ```mermaid
-%%{init: {'theme': 'forest'}}%%
 graph TD
     A[Tecnologias Utilizadas] --> B[Linguagem]
     A --> C[Framework]
     A --> D[ORM]
-    A --> E[Seguranca]
-    A --> F[Migracao]
+    A --> E[Segurança]
+    A --> F[Migração]
     A --> G[Bancos de Dados]
     A --> H[View]
     A --> I[Testes]
@@ -245,8 +242,6 @@ graph TD
     J --> J1[Render Cloud]
 ```
 
----
-
 ## Referências
 
 * [Spring Boot Documentation](https://spring.io/projects/spring-boot)
@@ -259,6 +254,7 @@ graph TD
 * Giovanna Revito Roz – RM558981
 * Kaian Gustavo de Oliveira Nascimento – RM558986
 * Lucas Kenji Kikuchi – RM554424
+
 
 
 
