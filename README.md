@@ -266,8 +266,24 @@ graph TD
     Deploy --> RenderCloud[Render Cloud]
 
 ```
+## Autenticação
 
+```mermaid
+flowchart TD
+    Usuario["Usuário (Funcionário ou Gerente)"] -->|Login| Security["Spring Security + JWT"]
 
+    Security -->|Token válido| AccessCheck["Verificação de perfil"]
+
+    subgraph Perfis
+        AccessCheck --> Funcionario["ROLE_FUNCIONARIO"]
+        AccessCheck --> Gerente["ROLE_GERENTE"]
+    end
+
+    Funcionario -->|Acesso limitado| Consultas["Consultas e registros básicos"]
+    Gerente -->|Acesso total| Gestao["Cadastros e gestão completa"]
+
+    Security -->|Token inválido| Denied["Acesso negado"]
+```
 ## Referências
 
 * [Spring Boot Documentation](https://spring.io/projects/spring-boot)
@@ -280,6 +296,7 @@ graph TD
 * Giovanna Revito Roz – RM558981
 * Kaian Gustavo de Oliveira Nascimento – RM558986
 * Lucas Kenji Kikuchi – RM554424
+
 
 
 
