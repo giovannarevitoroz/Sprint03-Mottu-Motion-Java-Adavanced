@@ -221,26 +221,27 @@ flowchart TD
 
 ```mermaid
 graph TD
-    A[Tecnologias Utilizadas] --> B[Linguagem]
-    A --> C[Framework]
-    A --> D[ORM]
-    A --> E[Seguranca]
-    A --> F[Migracao]
-    A --> G[Bancos de Dados]
-    A --> H[View]
-    A --> I[Testes]
-    A --> J[Deploy]
+    Tecnologias --> Linguagem
+    Tecnologias --> Framework
+    Tecnologias --> ORM
+    Tecnologias --> Seguranca
+    Tecnologias --> Migracao
+    Tecnologias --> BancosDeDados
+    Tecnologias --> View
+    Tecnologias --> Testes
+    Tecnologias --> Deploy
 
-    B --> B1[Java 17]
-    C --> C1[Spring Boot 3]
-    D --> D1[Spring Data JPA]
-    E --> E1[Spring Security + JWT]
-    F --> F1[Flyway]
-    G --> G1[MySQL 8 (Local)]
-    G --> G2[PostgreSQL (Render)]
-    H --> H1[Thymeleaf]
-    I --> I1[JUnit]
-    J --> J1[Render Cloud]
+    Linguagem --> Java17[Java 17]
+    Framework --> SpringBoot3[Spring Boot 3]
+    ORM --> SpringDataJPA[Spring Data JPA]
+    Seguranca --> SpringSecurityJWT[Spring Security + JWT]
+    Migracao --> Flyway[Flyway]
+    BancosDeDados --> MySQL8[MySQL 8 Local]
+    BancosDeDados --> PostgreSQL[PostgreSQL Render]
+    View --> Thymeleaf[Thymeleaf]
+    Testes --> JUnit[JUnit]
+    Deploy --> RenderCloud[Render Cloud]
+
 ```
 
 
@@ -256,6 +257,7 @@ graph TD
 * Giovanna Revito Roz – RM558981
 * Kaian Gustavo de Oliveira Nascimento – RM558986
 * Lucas Kenji Kikuchi – RM554424
+
 
 
 
