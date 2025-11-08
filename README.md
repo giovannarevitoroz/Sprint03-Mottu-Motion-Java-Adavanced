@@ -239,7 +239,6 @@ graph TD
     BancosDeDados --> MySQL8[MySQL 8 Local]
     BancosDeDados --> PostgreSQL[PostgreSQL Render]
     View --> Thymeleaf[Thymeleaf]
-    Testes --> JUnit[JUnit]
     Deploy --> RenderCloud[Render Cloud]
 
 ```
@@ -257,6 +256,7 @@ graph TD
 * Giovanna Revito Roz – RM558981
 * Kaian Gustavo de Oliveira Nascimento – RM558986
 * Lucas Kenji Kikuchi – RM554424
+
 
 
 
