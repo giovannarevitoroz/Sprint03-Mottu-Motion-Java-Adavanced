@@ -203,13 +203,14 @@ erDiagram
 
 ## Fluxo da Aplicação
 
+
 ```mermaid
 flowchart TD
-    A[Usuário (Gerente / Funcionário)] -->|Login| B[Spring Security + JWT]
-    B -->|Token válido| C[Controller REST]
+    A[Usuario - Gerente / Funcionario] -->|Login| B[Spring Security + JWT]
+    B -->|Token valido| C[Controller REST]
     C --> D[Service Layer]
     D --> E[Repository JPA]
-    E --> F[(Banco de Dados MySQL / PostgreSQL)]
+    E --> F[(Banco de Dados MySQL/PostgreSQL)]
     F -->|Retorna dados| C
     C --> G[Thymeleaf / API JSON]
 ```
@@ -223,8 +224,8 @@ graph TD
     A[Tecnologias Utilizadas] --> B[Linguagem]
     A --> C[Framework]
     A --> D[ORM]
-    A --> E[Segurança]
-    A --> F[Migração]
+    A --> E[Seguranca]
+    A --> F[Migracao]
     A --> G[Bancos de Dados]
     A --> H[View]
     A --> I[Testes]
@@ -242,6 +243,7 @@ graph TD
     J --> J1[Render Cloud]
 ```
 
+
 ## Referências
 
 * [Spring Boot Documentation](https://spring.io/projects/spring-boot)
@@ -254,6 +256,7 @@ graph TD
 * Giovanna Revito Roz – RM558981
 * Kaian Gustavo de Oliveira Nascimento – RM558986
 * Lucas Kenji Kikuchi – RM554424
+
 
 
 
