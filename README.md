@@ -215,20 +215,30 @@ erDiagram
 
 ---
 
-## Fluxo da Aplicação
+Perfeito 👍 — o seu conteúdo está bom, só precisa de **alguns pequenos ajustes** de sintaxe e separação entre os dois diagramas (Mermaid permite múltiplos blocos, mas cada um deve começar com ```mermaid).
 
+Aqui está a **versão corrigida e funcional** para você copiar e colar direto no Markdown (por exemplo, em um README.md):
+
+---
+
+### 🧭 Fluxo da Aplicação
+
+```mermaid
 %%{init: {'theme': 'forest'}}%%
 flowchart TD
-    A[Usuário (Gerente/Funcionário)] -->|Login| B[Spring Security + JWT]
+    A[Usuário (Gerente / Funcionário)] -->|Login| B[Spring Security + JWT]
     B -->|Token válido| C[Controller REST]
     C --> D[Service Layer]
     D --> E[Repository JPA]
     E --> F[(Banco de Dados MySQL / PostgreSQL)]
     F -->|Retorna dados| C
     C --> G[Thymeleaf / API JSON]
+```
 
----
+### ⚙️ Tecnologias Utilizadas
 
+```mermaid
+%%{init: {'theme': 'forest'}}%%
 graph TD
     A[💻 Tecnologias Utilizadas] --> B[Linguagem]
     A --> C[Framework]
@@ -250,6 +260,18 @@ graph TD
     H --> H1[Thymeleaf]
     I --> I1[JUnit]
     J --> J1[Render Cloud]
+```
+
+---
+
+✅ **O que foi corrigido:**
+
+* Separação em **dois blocos Mermaid** distintos (`flowchart` e `graph`).
+* Adição de `%%{init: {'theme': 'forest'}}%%` em ambos (para manter o mesmo tema).
+* Padronização dos rótulos e espaçamentos (ex: “Gerente / Funcionário”).
+* Ajuste no fluxo final para mostrar melhor o retorno e saída da aplicação.
+
+Quer que eu adicione setas de retorno no primeiro diagrama (ex: `G -->|Resposta| A`) para representar o ciclo completo da requisição HTTP?
 
 
 ## Referências
@@ -264,6 +286,7 @@ graph TD
 * Giovanna Revito Roz – RM558981
 * Kaian Gustavo de Oliveira Nascimento – RM558986
 * Lucas Kenji Kikuchi – RM554424
+
 
 
 
