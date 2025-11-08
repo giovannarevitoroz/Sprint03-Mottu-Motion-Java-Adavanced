@@ -158,20 +158,7 @@ Durante o desenvolvimento do projeto, foram aplicados e consolidados diversos co
 ## Roadmap
 
 * [ ] Adicionar painel de dashboard com gráficos de movimentação
-* [ ] Implementar upload de documentos e comprovantes
 * [ ] Expandir autenticação para integração mobile
-* [ ] Adicionar logs detalhados com Spring Actuator
-
----
-
-## Autores
-
-| Nome                                     | RM       | Função                                       |
-| ---------------------------------------- | -------- | -------------------------------------------- |
-| **Giovanna Revito Roz**                  | RM558981 | Desenvolvimento Backend e Modelagem de Banco |
-| **Kaian Gustavo de Oliveira Nascimento** | RM558986 | API REST e Segurança JWT                     |
-| **Lucas Kenji Kikuchi**                  | RM554424 | Documentação, Flyway e Deploy Render         |
-
 ---
 
 ## Estrutura do Projeto
@@ -215,19 +202,13 @@ erDiagram
 
 ---
 
-Perfeito 👍 — o seu conteúdo está bom, só precisa de **alguns pequenos ajustes** de sintaxe e separação entre os dois diagramas (Mermaid permite múltiplos blocos, mas cada um deve começar com ```mermaid).
-
-Aqui está a **versão corrigida e funcional** para você copiar e colar direto no Markdown (por exemplo, em um README.md):
-
----
-
-### 🧭 Fluxo da Aplicação
+### Fluxo da Aplicação
 
 ```mermaid
 %%{init: {'theme': 'forest'}}%%
 flowchart TD
-    A[Usuário (Gerente / Funcionário)] -->|Login| B[Spring Security + JWT]
-    B -->|Token válido| C[Controller REST]
+    A[Usuario (Gerente / Funcionario)] -->|Login| B[Spring Security + JWT]
+    B -->|Token valido| C[Controller REST]
     C --> D[Service Layer]
     D --> E[Repository JPA]
     E --> F[(Banco de Dados MySQL / PostgreSQL)]
@@ -235,16 +216,18 @@ flowchart TD
     C --> G[Thymeleaf / API JSON]
 ```
 
-### ⚙️ Tecnologias Utilizadas
+---
+
+### Tecnologias Utilizadas
 
 ```mermaid
 %%{init: {'theme': 'forest'}}%%
 graph TD
-    A[💻 Tecnologias Utilizadas] --> B[Linguagem]
+    A[Tecnologias Utilizadas] --> B[Linguagem]
     A --> C[Framework]
     A --> D[ORM]
-    A --> E[Segurança]
-    A --> F[Migração]
+    A --> E[Seguranca]
+    A --> F[Migracao]
     A --> G[Bancos de Dados]
     A --> H[View]
     A --> I[Testes]
@@ -264,16 +247,6 @@ graph TD
 
 ---
 
-✅ **O que foi corrigido:**
-
-* Separação em **dois blocos Mermaid** distintos (`flowchart` e `graph`).
-* Adição de `%%{init: {'theme': 'forest'}}%%` em ambos (para manter o mesmo tema).
-* Padronização dos rótulos e espaçamentos (ex: “Gerente / Funcionário”).
-* Ajuste no fluxo final para mostrar melhor o retorno e saída da aplicação.
-
-Quer que eu adicione setas de retorno no primeiro diagrama (ex: `G -->|Resposta| A`) para representar o ciclo completo da requisição HTTP?
-
-
 ## Referências
 
 * [Spring Boot Documentation](https://spring.io/projects/spring-boot)
@@ -286,6 +259,7 @@ Quer que eu adicione setas de retorno no primeiro diagrama (ex: `G -->|Resposta|
 * Giovanna Revito Roz – RM558981
 * Kaian Gustavo de Oliveira Nascimento – RM558986
 * Lucas Kenji Kikuchi – RM554424
+
 
 
 
