@@ -32,7 +32,7 @@ Acesse a versão hospedada do projeto:
 
 ## Screenshots
 
-![App Screenshot](<img width="1906" height="938" alt="Captura de tela 2025-11-08 110004" src="https://github.com/user-attachments/assets/40233358-bfd4-4c06-b790-97d2b478ae50" />)
+![App Screenshot](<img width="1906" height="938" alt="image" src="https://github.com/user-attachments/assets/5240fd52-97a6-49bf-b3c4-6869ae459575" />)
 
 ---
 
@@ -277,6 +277,7 @@ graph TD
 * Giovanna Revito Roz – RM558981
 * Kaian Gustavo de Oliveira Nascimento – RM558986
 * Lucas Kenji Kikuchi – RM554424
+
 
 
 
