@@ -201,18 +201,42 @@ erDiagram
     GERENTE }o--|| PÁTIO : administra
 ```
 
-## Fluxo da Aplicação
-
+## Pacotes da Aplicação
 
 ```mermaid
 flowchart TD
-    A[Usuario - Gerente / Funcionario] -->|Login| B[Spring Security + JWT]
-    B -->|Token valido| C[Controller REST]
-    C --> D[Service Layer]
-    D --> E[Repository JPA]
-    E --> F[(Banco de Dados MySQL/PostgreSQL)]
-    F -->|Retorna dados| C
-    C --> G[Thymeleaf / API JSON]
+    subgraph pacotes
+        direction TB
+        ControllerPkg[controller]
+        CorsPkg[cors]
+        DtoPkg[dto]
+        ExceptionPkg[exception]
+        ModelPkg[model]
+        RepositoryPkg[repository]
+        SecurityPkg[security]
+        ServicePkg[service]
+        ViewPkg[view]
+    end
+    
+    ControllerPkg --> ServicePkg
+    ServicePkg --> RepositoryPkg
+    RepositoryPkg --> Database[(Banco de Dados MySQL / PostgreSQL)]
+```
+
+## Fluxo da Aplicação
+```mermaid
+flowchart TD
+    Usuario[Usuário (Gerente / Funcionário)] -->|Login| Security[Spring Security + JWT]
+    Security -->|Token válido| Controller[Controller REST]
+    
+    subgraph Camadas
+        Controller --> Service[Service Layer]
+        Service --> Repository[Repository JPA]
+        Repository --> Database[(Banco de Dados MySQL / PostgreSQL)]
+        Controller --> View[Thymeleaf / API JSON]
+    end
+
+    Database -->|Retorna dados| Controller
 ```
 
 ---
@@ -228,7 +252,6 @@ graph TD
     Tecnologias --> Migracao
     Tecnologias --> BancosDeDados
     Tecnologias --> View
-    Tecnologias --> Testes
     Tecnologias --> Deploy
 
     Linguagem --> Java17[Java 17]
@@ -256,6 +279,7 @@ graph TD
 * Giovanna Revito Roz – RM558981
 * Kaian Gustavo de Oliveira Nascimento – RM558986
 * Lucas Kenji Kikuchi – RM554424
+
 
 
 
