@@ -225,14 +225,17 @@ flowchart TD
 ## Fluxo da Aplicação
 ```mermaid
 flowchart TD
-    Usuario["Usuario - Gerente / Funcionario"] -->|Login| Security["Spring Security + JWT"]
-    Security -->|Token valido| Controller["Controller REST"]
+    Usuario["Usuário - Gerente / Funcionário"] -->|Login| Security["Spring Security + JWT"]
+    Security -->|Token válido| Controller["Controller REST"]
     
     subgraph Camadas
-        Controller --> Service["Service Layer"]
-        Service --> Repository["Repository JPA"]
+        Controller --> DTO["DTO - Transporte de dados"]
+        Controller --> Service["Service Layer - Regras de negócio"]
+        Service --> Model["Model - Entidades"]
+        Service --> Repository["Repository JPA - Persistência"]
         Repository --> Database["Banco de Dados MySQL / PostgreSQL"]
         Controller --> View["Thymeleaf / API JSON"]
+        Security --> Exception["Exception - Tratamento de erros"]
     end
 
     Database -->|Retorna dados| Controller
@@ -277,6 +280,7 @@ graph TD
 * Giovanna Revito Roz – RM558981
 * Kaian Gustavo de Oliveira Nascimento – RM558986
 * Lucas Kenji Kikuchi – RM554424
+
 
 
 
