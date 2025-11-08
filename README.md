@@ -1,6 +1,5 @@
-# Vídeo demonstracao do projeto 
-## [VIDEO YOUTUBE](https://youtu.be/lbROYuvLvZY)
-
+## Vídeo demonstracao do projeto 
+## [VIDEO YOUTUBE](https://youtu.be/I6KXXwZDc_Y)
 
 ![Logo](https://chatgpt.com/backend-api/estuary/public_content/enc/eyJpZCI6Im1fNjkwN2FlM2JkOWUwODE5MWFlYzEzNmQ3ZGY4YWZkYzM6ZmlsZV8wMDAwMDAwMDBlYzQ3MWY1YjA4ZWMxM2MyMWJhMjVkMSIsInRzIjoiMjAzOTQiLCJwIjoicHlpIiwiY2lkIjoiMSIsInNpZyI6ImUxNjE2N2M2NTE0MTA4NGY3NDQ3ZTQxMjRhNjY4NzM0NmE1ODdkYTU3ZGM0ZDdjNGEwZmIyMmRiZDMyNDQwMDEiLCJ2IjoiMCIsImdpem1vX2lkIjpudWxsLCJjcCI6bnVsbCwibWEiOm51bGx9)
 
@@ -27,12 +26,6 @@ O projeto tem como objetivo aprimorar a **gestão e o monitoramento da frota**, 
 Acesse a versão hospedada do projeto:
 
 🔗 [https://sprint03-mottu-motion-java-adavanced-1.onrender.com](https://sprint03-mottu-motion-java-adavanced-1.onrender.com)
-
----
-
-## Screenshots
-
-![App Screenshot](<img width="1906" height="938" alt="image" src="https://github.com/user-attachments/assets/5240fd52-97a6-49bf-b3c4-6869ae459575" />)
 
 ---
 
@@ -291,6 +284,7 @@ flowchart TD
 * Giovanna Revito Roz – RM558981
 * Kaian Gustavo de Oliveira Nascimento – RM558986
 * Lucas Kenji Kikuchi – RM554424
+
 
 
 
