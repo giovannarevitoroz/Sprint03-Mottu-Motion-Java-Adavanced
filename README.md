@@ -50,11 +50,6 @@ Acesse a versão hospedada do projeto:
 
 ---
 
-## Documentação
-
-A documentação técnica e diagramas estão disponíveis em `/docs`.
-
----
 
 ## Deploy
 
@@ -296,6 +291,7 @@ flowchart TD
 * Giovanna Revito Roz – RM558981
 * Kaian Gustavo de Oliveira Nascimento – RM558986
 * Lucas Kenji Kikuchi – RM554424
+
 
 
 
